@@ -15,3 +15,6 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('user/css/clean-blog.min.css') }}" rel="stylesheet">
+
+    @section('head')
+        @show
