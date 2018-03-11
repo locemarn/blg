@@ -14,9 +14,15 @@
           <div class="box-header with-border">
             <h3 class="box-title">Titles</h3>
           </div>
+          @if (count($errors) > 0)
+              @foreach ($errors->all() as $error)
+                  <p class="alert alert-danger">{{ $error }}</p>
+              @endforeach
+          @endif
           <!-- /.box-header -->
           <!-- form start -->
-          <form role="form">
+          <form role="form" action="{{ route('post.store') }}" method="POST">
+            {{ csrf_field() }}
             <div class="box-body">
               <div class="col-lg-6">
                 <div class="form-group">
@@ -64,10 +70,8 @@
               </div>
               <!-- /.box-header -->
               <div class="box-body pad">
-                <form>
-                  <textarea id="editor1" name="editor1" rows="10" cols="80">
+                  <textarea id="editor1" name="body" rows="10" cols="80">
                   </textarea>
-                </form>
               </div>
             </div>
 
