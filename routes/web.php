@@ -1,17 +1,30 @@
 <?php
 
-Route::get('/', function () {
-    return view('user.blog');
+
+// User Routes
+Route::group(['namespace' => 'User'], function(){
+    Route::get('/', 'HomeController@index');
+    Route::get('post', 'PostController@index')->name('post');
 });
 
-Route::get('post', function() {
-    return view('user.post');
-})->name('post');
 
-Route::resource('admin/post', 'Admin\PostController');
-Route::resource('admin/tag', 'Admin\TagController');
-Route::resource('admin/category', 'Admin\CategoryController');
+// Admin Routes
+Route::group(['namespace' => 'Admin'], function(){
+    Route::get('admin/home', 'HomeController@index')->name('admin.home');
+    
+    // Post Routes
+    Route::resource('admin/post', 'PostController');
 
-Route::get('admin/home', function() {
-    return view('admin.home');
-})->name('post');
+    // Users Routes
+    Route::resource('admin/user', 'UserController');
+
+    // Tag Routes
+    Route::resource('admin/tag', 'TagController');
+
+    // Category Routes
+    Route::resource('admin/category', 'CategoryController');
+});
+
+// Route::get('admin/home', function() {
+//     return view('admin.home');
+// })->name('post');
