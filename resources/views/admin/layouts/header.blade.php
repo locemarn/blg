@@ -1,7 +1,7 @@
 <!-- Logo -->
 <a href="index2.html" class="logo">
   <!-- mini logo for sidebar mini 50x50 pixels -->
-  <span class="logo-mini"><b>A</b>LT</span>
+  <span class="logo-mini"><b></b></span>
   <!-- logo for regular state and mobile devices -->
   <span class="logo-lg"><b>Blog</b></span>
 </a>
@@ -21,7 +21,7 @@
           <span class="label label-success">4</span>
         </a>
         <ul class="dropdown-menu">
-          <li class="header">You have 4 messages</li>
+          <li class="header"></li>
           <li>
             <!-- inner menu: contains the actual data -->
             <ul class="menu">
@@ -64,7 +64,7 @@
               </li>
               <li>
                 <a href="#">
-                  <div class="pull-left">
+                  <div class="pull-right">
                     <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                   </div>
                   <h4>
