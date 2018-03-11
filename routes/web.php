@@ -8,19 +8,10 @@ Route::get('post', function() {
     return view('user.post');
 })->name('post');
 
+Route::resource('admin/post', 'Admin\PostController');
+Route::resource('admin/tag', 'Admin\TagController');
+Route::resource('admin/category', 'Admin\CategoryController');
 
 Route::get('admin/home', function() {
     return view('admin.home');
 })->name('post');
-
-Route::get('admin/post', function() {
-    return view('admin.post.post');
-});
-
-Route::get('admin/tag', function() {
-    return view('admin.tag.tag');
-});
-
-Route::get('admin/category', function() {
-    return view('admin.category.category');
-});
