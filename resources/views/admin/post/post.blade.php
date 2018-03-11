@@ -14,11 +14,7 @@
           <div class="box-header with-border">
             <h3 class="box-title">Titles</h3>
           </div>
-          @if (count($errors) > 0)
-              @foreach ($errors->all() as $error)
-                  <p class="alert alert-danger">{{ $error }}</p>
-              @endforeach
-          @endif
+          @include('includes.messages')
           <!-- /.box-header -->
           <!-- form start -->
           <form role="form" action="{{ route('post.store') }}" method="POST">
@@ -77,6 +73,7 @@
 
             <div class="box-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
+              <a href='{{ route('post.index') }}' class="btn btn-warning">Back</a>
             </div>
           </form>
         </div>
