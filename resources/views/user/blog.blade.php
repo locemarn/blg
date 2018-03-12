@@ -28,9 +28,11 @@
       @endforeach
       
       <!-- Pager -->
-      <div class="clearfix">
-        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-      </div>
+      <ul class="pager" style="list-style-type: none;">
+        <li class="next">
+          {{ $posts->links() }}
+        </li>
+      </ul>
     </div>
   </div>
 </div>
