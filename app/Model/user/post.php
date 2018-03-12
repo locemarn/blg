@@ -13,6 +13,6 @@ class post extends Model
 
     public function categories()
     {
-        return $this->belongsToMany('App\Model\user\category', 'category_post');
+        return $this->belongsToMany('App\Model\user\category', 'category_posts');
     }
 }

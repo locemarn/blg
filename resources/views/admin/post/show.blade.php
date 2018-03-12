@@ -56,7 +56,7 @@
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
                     </form>
-                      <td><a href="" onClick="if(confirm('Are you sureto want to delete this?')){
+                      <td><a href="" onClick="if(confirm('Are you sure you want to delete this?')){
                         event.preventDefault();
                         document.getElementById('delete-form-{{$post->id}}').submit();
                       } else {
