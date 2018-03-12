@@ -22,7 +22,7 @@
           @include('includes.messages')
           <!-- /.box-header -->
           <!-- form start -->
-          <form role="form" action="{{ route('post.update', $post->id) }}" method="POST">
+          <form role="form" action="{{ route('post.update', $post->id) }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
             <div class="box-body">
