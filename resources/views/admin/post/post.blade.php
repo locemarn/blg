@@ -122,8 +122,8 @@
 <!-- CK Editor -->
 {{--  <script src="{{asset('admin/bower_components/ckeditor/ckeditor.js')}}"></script>  --}}
 <!-- Bootstrap WYSIHTML5 -->
-<script src="{{asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
-<script src="//cdn.ckeditor.com/4.8.0/full/ckeditor.js"></script>
+<script src="{{ asset('admin/ckeditor/ckeditor.js') }}"></script> 
+<script src="{{asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>  --}}
 
 <script>
   $(function () {
@@ -134,14 +134,27 @@
     $('.textarea').wysihtml5()
   })
 </script>
+<script>
+  $(document).ready(function() {
+    $(".select2").select2();
+  });
+</script>
 
 @endsection
 
+
 @section('footerSection')
-  <script src="{{ asset('admin/plugins/select2/select2.full.min.js') }}"></script>
-  <script>
-    $(document).ready(function() {
-      $(".select2").select2();
+<script src="{{ asset('admin/plugins/select2/select2.full.min.js') }}"></script>
+<script>
+    $(function () {
+      // Replace the <textarea id="editor1"> with a CKEditor
+      // instance, using default configuration.
+      CKEDITOR.replace('editor1');
     });
-  </script>
+</script>
+<script>
+  $(document).ready(function() {
+    $(".select2").select2();
+  });
+</script>
 @endsection
