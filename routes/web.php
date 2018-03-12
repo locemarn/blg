@@ -31,3 +31,7 @@ Route::group(['namespace' => 'Admin'], function(){
 // Route::get('admin/home', function() {
 //     return view('admin.home');
 // })->name('post');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
