@@ -24,7 +24,7 @@
           <small>Created at: {{ $post->created_at->diffForHumans() }}</small>
           @foreach ($post->categories as $category)
             <small class="pull-right" style="margin-right: 20px;">
-              {{ $category->name }}
+              <a href="{{ route('category',$category->slug) }}">{{ $category->name }}</a>
             </small>      
           @endforeach
             
@@ -33,9 +33,9 @@
         {{--  Tag clouds  --}}
         <h3>Tag Clouds</h3>
         @foreach ($post->tags as $tag)
-          <small class="pull-left" style="margin-right: 20px; border-radius:5px; border:1px solid gray; padding: 3px;background:gray; color:#fff;">
+        <a href="{{ route('tag',$tag->slug) }}"><small class="pull-left" style="margin-right: 20px; border-radius:5px; border:1px solid gray; padding: 3px;background:gray; color:#fff;">
             {{ $tag->name }}
-          </small>      
+          </small></a>
         @endforeach
       </div>
       <hr>
