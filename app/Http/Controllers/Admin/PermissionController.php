@@ -38,11 +38,13 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name'=>'required|max:50|unique:permissions'
+            'name'=>'required|max:50|unique:permissions',
+            'for'=>'required'
         ]);
 
         $permission = new Permission;
         $permission->name = $request->name;
+        $permission->for = $request->for;
         $permission->save();
 
         return redirect(route('permission.index'));
@@ -81,11 +83,13 @@ class PermissionController extends Controller
     public function update(Request $request, Permission $permission)
     {
         $this->validate($request,[
-            'name'=>'required|max:50|unique:permissions'
+            'name'=>'required|max:50|unique:permissions',
+            'for'=>'required'
         ]);
 
         $permission = Permission::find($permission->id);
         $permission->name = $request->name;
+        $permission->for = $request->for;
         $permission->save();
 
         return redirect(route('permission.index'))->with('message', 'Permission updated sucessfully');

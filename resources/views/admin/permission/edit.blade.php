@@ -25,6 +25,16 @@
                     <label for="name">Permission</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ $permission->name }}">
                   </div>
+
+                  <div class="form-group">
+                    <label for="for">Permission for</label>
+                    <select name="for" id="for" class="form-control">
+                      <option selected disable>Select Permission For</option>
+                      <option value="user">User</option>
+                      <option value="post">Post</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
                   
                   
                   <div class="form-group">
