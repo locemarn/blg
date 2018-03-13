@@ -33,7 +33,7 @@
             <li class=""><a href="{{ route('tag.index') }}"><i class="fa fa-circle-o"></i> Tags</a></li>
             {{--  @endcan  --}}
             <li class=""><a href="{{ route('user.index') }}"><i class="fa fa-circle-o"></i> Users</a></li>
-            <li class=""><a href=""><i class="fa fa-circle-o"></i> Roles</a></li>
+            <li class=""><a href="{{ route('role.index') }}"><i class="fa fa-circle-o"></i> Roles</a></li>
             <li class=""><a href=""><i class="fa fa-circle-o"></i> Permissions</a></li>
         </li>
         

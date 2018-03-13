@@ -11,28 +11,25 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Titles</h3>
+              <h3 class="box-title">Edit Role</h3>
             </div>
             @include('includes.messages')
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{ route('tag.update', $tag->id) }}" method="POST">
+            <form role="form" action="{{ route('role.update' ,$role->id) }}" method="POST">
               {{ csrf_field() }}
-              {{ method_field('PUT') }}
+              {{ method_field('PATCH') }}
               <div class="box-body">
                 <div class="col-lg-offset-2 col-lg-8">
                   <div class="form-group">
-                    <label for="name">Tag Title</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Tag Title" value="{{ $tag->name }}">
+                    <label for="name">Role Title</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Tag Title" value="{{ $role->name }}">
                   </div>
                   
-                  <div class="form-group">
-                    <label for="slug">Tag Slug</label>
-                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" value="{{ $tag->slug }}">
-                  </div>
+                  
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a href='{{ route('tag.index') }}' class="btn btn-warning">Back</a>
+                    <a href='{{ route('role.index') }}' class="btn btn-warning">Back</a>
                   </div>
                 </div>
               </div>
