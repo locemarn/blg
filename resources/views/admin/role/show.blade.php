@@ -7,7 +7,8 @@
 @section('main-content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-  
+  <!-- Content Header (Page header) -->
+  @include('admin.layouts.pagehead')
   <!-- Main content -->
   <section class="content">
 

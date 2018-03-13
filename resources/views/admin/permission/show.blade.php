@@ -7,10 +7,12 @@
 @section('main-content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  @include('admin.layouts.pagehead')
   
   <!-- Main content -->
   <section class="content">
-
+    
     <!-- Default box -->
     <div class="box">
       <div class="box-header with-border">
@@ -27,7 +29,7 @@
       <div class="box-body">
         <div class="box">
           <div class="box-header">
-            @include('includes.messages')
+              @include('includes.messages')
           </div>
           <!-- /.box-header -->
           <div class="box-body">

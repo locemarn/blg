@@ -100,7 +100,8 @@ class UserController extends Controller
             'phone'=>'required|numeric',
         ]);
 
-        $user = admin::where('id', $id)->update($request->except('_token', '_method'));
+        $user = admin::where('id', $id)->update($request->except('_token', '_method', 'role'));
+        admin::find($id)->roles()->sync($request->role);
         return redirect(route('user.index'))->with('message', 'User Updated Successfully');
     }
 

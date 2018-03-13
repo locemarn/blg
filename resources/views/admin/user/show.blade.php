@@ -7,7 +7,8 @@
 @section('main-content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-  
+  <!-- Content Header (Page header) -->
+  @include('admin.layouts.pagehead')
   <!-- Main content -->
   <section class="content">
 
@@ -17,13 +18,13 @@
         <h3 class="box-title">Users</h3>
         <a href="{{ route('user.create') }}" class="col-lg-offset-5 btn btn-success">Add New</a>
         <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-          title="Collapse">
-          <i class="fa fa-minus"></i></button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-            <i class="fa fa-times"></i></button>
-          </div>
+        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+        title="Collapse">
+        <i class="fa fa-minus"></i></button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+          <i class="fa fa-times"></i></button>
         </div>
+      </div>
         @include('includes.messages')
       <div class="box-body">
         <div class="box">
@@ -37,6 +38,7 @@
               <tr>
                 <th>S.No</th>
                 <th>User Name</th>
+                <th>Assigned Roles</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
@@ -46,6 +48,11 @@
                 <tr>
                   <td>{{ $loop->index + 1 }}</td>
                   <td>{{ $user->email }}</td>
+                  <td>
+                    @foreach ($user->roles as $role)
+                        {{ $role->name }},
+                    @endforeach
+                  </td>
                   <td><a href="{{ route('user.edit', $user->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <form id="delete-form-{{$user->id}}" action="{{ route('user.destroy', $user->id) }}" method="POST">
                       {{ csrf_field() }}
@@ -66,6 +73,7 @@
               <tr>
                 <th>S.No</th>
                 <th>User Name</th>
+                <th>Assigned Roles</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
