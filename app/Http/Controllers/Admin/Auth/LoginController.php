@@ -44,17 +44,20 @@ class LoginController extends Controller
     {
         $this->validateLogin($request);
 
-        
-
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
         }
 
-        return $this->sendFailedLogininResponse($request);
+        return $this->sendFailedLoginResponse($request);
     }
 
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('admin');
     }
 }
