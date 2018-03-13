@@ -35,7 +35,7 @@
               <thead>
               <tr>
                 <th>S.No</th>
-                <th>Email</th>
+                <th>User Name</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
@@ -45,8 +45,8 @@
                 <tr>
                   <td>{{ $loop->index + 1 }}</td>
                   <td>{{ $user->email }}</td>
-                  <td><a href="{{ route('tag.edit', $user->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    <form id="delete-form-{{$user->id}}" action="{{ route('tag.destroy', $user->id) }}" method="POST">
+                  <td><a href="{{ route('user.edit', $user->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <form id="delete-form-{{$user->id}}" action="{{ route('user.destroy', $user->id) }}" method="POST">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
                     </form>
@@ -64,7 +64,7 @@
               <tfoot>
               <tr>
                 <th>S.No</th>
-                <th>Email</th>
+                <th>User Name</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
