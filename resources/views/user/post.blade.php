@@ -19,9 +19,9 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 <article>
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-          <small>Created at: {{ $post->created_at->diffForHumans() }}</small>
+    <div class="row" style="display: flex;">
+      <div class="col-lg-8 offset-lg-2 col-md-10 mx-auto">
+          <small>Created at: {{ $post->created_at }}</small>
           @foreach ($post->categories as $category)
             <small class="pull-right" style="margin-right: 20px;">
               <a href="{{ route('category',$category->slug) }}">{{ $category->name }}</a>

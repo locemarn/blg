@@ -40,7 +40,7 @@
                           <th>S.No</th>
                           <th>Title</th>
                           <th>Sub Title</th>
-                          <th>Slug</th>
+                          {{--  <th>Slug</th>  --}}
                           <th>Creatd At</th>
                           @can('posts.update',Auth::user())
                           <th>Edit</th>
@@ -56,7 +56,7 @@
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->subtitle }}</td>
-                            <td>{{ $post->slug }}</td>
+                            {{--  <td>{{ $post->slug }}</td>  --}}
                             <td>{{ $post->created_at }}</td>
 
                             @can('posts.update',Auth::user())
@@ -88,7 +88,7 @@
                           <th>S.No</th>
                           <th>Title</th>
                           <th>Sub Title</th>
-                          <th>Slug</th>
+                          {{--  <th>Slug</th>  --}}
                           <th>Creatd At</th>
                           @can('posts.update',Auth::user())
                           <th>Edit</th>
