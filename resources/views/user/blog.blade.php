@@ -3,11 +3,17 @@
 @section('bg-img', asset('user/img/home-bg.jpg') )
 @section('title', 'Blog')
 @section('sub-heading', 'Blog sub-heading')
-
+@section('head')
+  <style>
+    .fa-thumbs-up:hover {
+      color: red;
+    }
+  </style>
+@endsection
 @section('main-content')
 <!-- Main Content -->
 <div class="container">
-  <div class="row">
+  <div class="row" id="app">
     <div class="col-lg-8 col-md-10 mx-auto">
       @foreach ($posts as $post)
             
@@ -22,7 +28,12 @@
           </a>
           <p class="post-meta">Posted by
             <a href="#">Start Bootstrap</a>
-            {{ $post->created_at->diffForHumans() }}</p>
+            {{ $post->created_at->diffForHumans() }}
+            <a href="">
+              <small>0</small>
+              <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+            </a>
+          </p>
           </div>
           <hr>
       @endforeach
