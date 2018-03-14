@@ -39,6 +39,7 @@
                 <th>S.No</th>
                 <th>User Name</th>
                 <th>Assigned Roles</th>
+                <th>Status</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
@@ -53,6 +54,7 @@
                         {{ $role->name }},
                     @endforeach
                   </td>
+                  <td>{{ $user->status ? 'Active' : 'Not Active' }}</td>
                   <td><a href="{{ route('user.edit', $user->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <form id="delete-form-{{$user->id}}" action="{{ route('user.destroy', $user->id) }}" method="POST">
                       {{ csrf_field() }}
@@ -74,6 +76,7 @@
                 <th>S.No</th>
                 <th>User Name</th>
                 <th>Assigned Roles</th>
+                <th>Status</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>

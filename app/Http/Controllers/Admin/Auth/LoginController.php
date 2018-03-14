@@ -51,6 +51,16 @@ class LoginController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
 
+    protected function credentials(Request $request)
+    {
+        return[
+            'email'=>$request->email,
+            'password'=>$request->password,
+            'status'=>1
+        ];
+        // return $request->only($this->username(), 'password');
+    }
+
     public function __construct()
     {
         $this->middleware('guest:admin')->except('logout');
