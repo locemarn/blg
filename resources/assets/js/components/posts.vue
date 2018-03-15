@@ -9,10 +9,11 @@
             </h3>
         </a>
         <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> {{ created_at }} 
-            <a href="" @click.prevent="likeIt">
+            <a href="" @click.prevent="likeIt" id="count">
                 <small>{{ likeCount }}</small>
-                <i class="fa fa-thumbs-up" v-if="likeCount == 0" aria-hidden="true"></i>
-                <i class="fa fa-thumbs-up" style="color:red" v-else-if="likeCount > 0 " aria-hidden="true"></i>
+                <i class="fa fa-heart" style="color:rgb(255, 150, 150);font-size: 15px;" v-if="likeCount > 0 && likeCount <= 10" aria-hidden="true"></i>
+                <i class="fa fa-heart" style="color:rgb(255, 75, 75);font-size: 20px;" v-else-if="likeCount > 10 && likeCount <= 50" aria-hidden="true"></i>
+                <i class="fa fa-heart" style="color:rgb(255, 0, 0);font-size: 25px;" v-else-if="likeCount > 50 " aria-hidden="true"></i>
             </a>
         </p>
         <hr>

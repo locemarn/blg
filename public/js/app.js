@@ -585,6 +585,7 @@ if (false) {(function () {
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
@@ -14051,7 +14052,7 @@ var render = function() {
       _c(
         "a",
         {
-          attrs: { href: "" },
+          attrs: { href: "", id: "count" },
           on: {
             click: function($event) {
               $event.preventDefault()
@@ -14062,18 +14063,34 @@ var render = function() {
         [
           _c("small", [_vm._v(_vm._s(_vm.likeCount))]),
           _vm._v(" "),
-          _vm.likeCount == 0
+          _vm.likeCount > 0 && _vm.likeCount <= 10
             ? _c("i", {
-                staticClass: "fa fa-thumbs-up",
+                staticClass: "fa fa-heart",
+                staticStyle: {
+                  color: "rgb(255, 150, 150)",
+                  "font-size": "15px"
+                },
                 attrs: { "aria-hidden": "true" }
               })
-            : _vm.likeCount > 0
+            : _vm.likeCount > 10 && _vm.likeCount <= 50
               ? _c("i", {
-                  staticClass: "fa fa-thumbs-up",
-                  staticStyle: { color: "red" },
+                  staticClass: "fa fa-heart",
+                  staticStyle: {
+                    color: "rgb(255, 75, 75)",
+                    "font-size": "20px"
+                  },
                   attrs: { "aria-hidden": "true" }
                 })
-              : _vm._e()
+              : _vm.likeCount > 50
+                ? _c("i", {
+                    staticClass: "fa fa-heart",
+                    staticStyle: {
+                      color: "rgb(255, 0, 0)",
+                      "font-size": "25px"
+                    },
+                    attrs: { "aria-hidden": "true" }
+                  })
+                : _vm._e()
         ]
       )
     ]),

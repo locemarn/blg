@@ -6,8 +6,9 @@
 @section('head')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 	<style>
-		.fa-thumbs-up:hover{
-			color:#f41115;
+		#count:hover{
+			color: rgb(255, 0, 0);
+			text-decoration: none;
 		}
 	</style>
 @endsection

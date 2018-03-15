@@ -35,9 +35,17 @@
       </div>
     </footer>
 
+    {{--  jQuery  --}}
+    <script src="{{ asset('user/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('user/vendor/jquery/jquery.js') }}"></script>
+
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('user/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('user/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{{ asset('user/js/jqBootstrapValidation.js') }}"></script>
+    <script src="{{ asset('user/js/contact_me.js') }}"></script>
 
     <!-- Custom scripts for this template -->
     <script src="{{ asset('user/js/clean-blog.min.js') }}"></script>
