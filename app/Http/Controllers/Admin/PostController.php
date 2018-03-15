@@ -59,12 +59,13 @@ class PostController extends Controller
             'slug'=>'required',
             'body'=>'required',
             'image'=>'required',
+            'posted_by'=>'required'
         ]);
 
         if ($request->hasFile('image')) {
             $imageName = $request->image->store('public');
         }
-
+        
         $post = new post;
         $post->image = $imageName;
         $post->title = $request->title;
@@ -72,11 +73,11 @@ class PostController extends Controller
         $post->slug = $request->slug;
         $post->body = $request->body;
         $post->status = $request->status;
+        $post->posted_by = $request->posted_by;
         $post->save();
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);
 
-        
         return redirect(route('post.index'));
 
     }
@@ -104,9 +105,10 @@ class PostController extends Controller
             $post = post::with('tags', 'categories')->where('id', $id)->first();
             $tags = tag::all();
             $categories = category::all();
+            // dd($post);
             return view('admin.post.edit', compact('tags', 'categories', 'post'));
         }
-
+        
         return redirect(route('admin.home'));
     }
 
@@ -124,24 +126,25 @@ class PostController extends Controller
             'subtitle'=>'required',
             'slug'=>'required',
             'body'=>'required',
-            'image'=>'required'
+            'image'=>'required',
+            'posted_by'=>'required'
         ]);
 
         if ($request->hasFile('image')) {
             $imageName = $request->image->store('public');
         }
-
+        
         $post = post::find($id);
         $post->image = $imageName;
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
-        $post->slug= $request->slug;
+        $post->slug = $request->slug;
         $post->body = $request->body;
         $post->status = $request->status;
+        $post->posted_by = $request->posted_by;
+        $post->save();
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);
-        $post->save();
-
 
         return redirect(route('post.index'));
     }

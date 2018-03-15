@@ -37,39 +37,43 @@
                   <label for="slug">Post Slug</label>
                   <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug">
                 </div>
+                <div class="form-group">
+                  <label for="posted_by">Post By:</label>
+                  <input type="text" class="form-control" id="posted_by" name="posted_by" placeholder="Name">
+                </div>
               </div>
               <div class="col-lg-6">
-                  <div class="form-group">
-                    <div class="pull-right">
-                      <label for="exampleInputFile">File input</label>
-                      <input type="file" name="image" id="image">
-                    </div>
-                  </div>
-  
-                  <div class="checkbox pull-left">
-                    <label>
-                      <input type="checkbox" name="status" value="1"> Publish
-                    </label>
-                  </div>
-                  <br>
-                  <hr>
-                  <div class="form-group">
-                    <label>Select Tags</label>
-                    <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tags[]">
-                      @foreach ($tags as $tag)
-                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>  
-                      @endforeach
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Select Category</label>
-                    <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" tabindex="-1" aria-hidden="true" name="categories[]">
-                      @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>  
-                      @endforeach
-                    </select>
+                <div class="form-group">
+                  <div>
+                    <label for="exampleInputFile">File input</label>
+                    <input type="file" name="image" id="image">
                   </div>
                 </div>
+                <br>
+                <div class="checkbox pull-left">
+                  <label>
+                    <input type="checkbox" name="status" value="1"> Publish
+                  </label>
+                </div>
+                <br>
+                <hr>
+                <div class="form-group" style="margin-top: 25px;">
+                  <label>Select Tags</label>
+                  <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tags[]">
+                    @foreach ($tags as $tag)
+                      <option value="{{ $tag->id }}">{{ $tag->name }}</option>  
+                    @endforeach
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Select Category</label>
+                  <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" tabindex="-1" aria-hidden="true" name="categories[]">
+                    @foreach ($categories as $category)
+                      <option value="{{ $category->id }}">{{ $category->name }}</option>  
+                    @endforeach
+                  </select>
+                </div>
+              </div>
             </div>
             <!-- /.box-body -->
 

@@ -22,7 +22,7 @@
           @include('includes.messages')
           <!-- /.box-header -->
           <!-- form start -->
-          <form role="form" action="{{ route('post.update', $post->id) }}" method="POST" enctype="multipart/form-data">
+          <form class="was-validated" role="form" action="{{ route('post.update', $post->id) }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
             <div class="box-body">
@@ -33,21 +33,25 @@
                 </div>
                 <div class="form-group">
                   <label for="subtitle">Post Sub Title</label>
-                  <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Sub Title" value="{{ $post->subtitle }}">
+                  <input type="text" class="form-control" id="subtitle" name="subtitle" value="{{ $post->subtitle }}">
                 </div>
                 <div class="form-group">
                   <label for="slug">Post Slug</label>
-                  <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" value="{{ $post->slug }}">
+                  <input type="text" class="form-control" id="slug" name="slug" value="{{ $post->slug }}">
+                </div>
+                <div class="form-group">
+                  <label for="posted_by">Post By:</label>
+                  <input type="text" class="form-control" id="posted_by" name="posted_by" value="{{ $post->posted_by }}">
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="form-group">
-                  <div class="pull-right">
+                  <div>
                     <label for="exampleInputFile">File input</label>
-                    <input type="file" name="image" id="image">{{ $post->image }}
+                    <input type="file" name="image" id="image">
                   </div>
                 </div>
-
+                <br>
                 <div class="checkbox pull-left">
                   <label>
                     <input type="checkbox" name="status"
@@ -58,34 +62,34 @@
                 </div>
                 <br>
                 <hr>
+                <div class="form-group" style="margin-top: 25px;">
+                  <label>Select Tags</label>
+                  <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tags[]">
+                    @foreach ($tags as $tag)
+                      <option value="{{ $tag->id }}"
+                        @foreach ($post->tags as $postTag)
+                            @if ($postTag->id == $tag->id)
+                              selected
+                            @endif
+                        @endforeach
+                        >{{ $tag->name }}</option>  
+                    @endforeach
+                  </select>
+                </div>
                 <div class="form-group">
-                    <label>Select Tags</label>
-                    <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" tabindex="-1" aria-hidden="true" name="tags[]">
-                      @foreach ($tags as $tag)
-                        <option value="{{ $tag->id }}"
-                          @foreach ($post->tags as $postTag)
-                              @if ($postTag->id == $tag->id)
-                                selected
-                              @endif
-                          @endforeach
-                          >{{ $tag->name }}</option>  
-                      @endforeach
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Select Category</label>
-                    <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" tabindex="-1" aria-hidden="true" name="categories[]">
-                      @foreach ($categories as $category)
-                        <option value="{{ $category->id }}"
-                          @foreach ($post->categories as $postCategory)
-                              @if ($postCategory->id == $category->id)
-                                selected
-                              @endif
-                          @endforeach
-                          >{{ $category->name }}</option>  
-                      @endforeach
-                    </select>
-                  </div>
+                  <label>Select Category</label>
+                  <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" tabindex="-1" aria-hidden="true" name="categories[]">
+                    @foreach ($categories as $category)
+                      <option value="{{ $category->id }}"
+                        @foreach ($post->categories as $postCategory)
+                            @if ($postCategory->id == $category->id)
+                              selected
+                            @endif
+                        @endforeach
+                        >{{ $category->name }}</option>  
+                    @endforeach
+                  </select>
+                </div>
               </div>
             </div>
             <!-- /.box-body -->

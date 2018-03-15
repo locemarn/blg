@@ -8,9 +8,10 @@
                 {{ subtitle }}
             </h3>
         </a>
-        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> {{ created_at }} 
+        <p class="post-meta">Posted by <a href="#">{{ posted_by }}</a> {{ created_at }} 
             <a href="" @click.prevent="likeIt" id="count">
                 <small>{{ likeCount }}</small>
+                <i id="count" class="fa fa-heart" style="color:rgb(200, 200, 200);font-size: 10px;" v-if="likeCount == 0" aria-hidden="true"></i>
                 <i class="fa fa-heart" style="color:rgb(255, 150, 150);font-size: 15px;" v-if="likeCount > 0 && likeCount <= 10" aria-hidden="true"></i>
                 <i class="fa fa-heart" style="color:rgb(255, 75, 75);font-size: 20px;" v-else-if="likeCount > 10 && likeCount <= 50" aria-hidden="true"></i>
                 <i class="fa fa-heart" style="color:rgb(255, 0, 0);font-size: 25px;" v-else-if="likeCount > 50 " aria-hidden="true"></i>
@@ -28,7 +29,7 @@
             }
         },
         props:[
-            'title','subtitle','created_at','postId','login','likes','slug'
+            'title','subtitle','created_at','postId','login','likes','slug', 'posted_by'
         ],
         created(){
             this.likeCount = this.likes

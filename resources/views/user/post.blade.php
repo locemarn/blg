@@ -21,7 +21,7 @@
   <div class="container">
     <div class="row" style="display: flex;">
       <div class="col-lg-8 offset-lg-2 col-md-10 mx-auto">
-          <small>Created at: {{ $post->created_at }}</small>
+        <small>Created at: {{ $post->created_at }}, by: {{ $post->posted_by }}</small>
           @foreach ($post->categories as $category)
             <small class="pull-right" style="margin-right: 20px;">
               <a href="{{ route('category',$category->slug) }}">{{ $category->name }}</a>

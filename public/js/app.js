@@ -586,6 +586,7 @@ if (false) {(function () {
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
@@ -594,7 +595,7 @@ if (false) {(function () {
         };
     },
 
-    props: ['title', 'subtitle', 'created_at', 'postId', 'login', 'likes', 'slug'],
+    props: ['title', 'subtitle', 'created_at', 'postId', 'login', 'likes', 'slug', 'posted_by'],
     created: function created() {
         this.likeCount = this.likes;
     },
@@ -14047,7 +14048,7 @@ var render = function() {
     _vm._v(" "),
     _c("p", { staticClass: "post-meta" }, [
       _vm._v("Posted by "),
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Start Bootstrap")]),
+      _c("a", { attrs: { href: "#" } }, [_vm._v(_vm._s(_vm.posted_by))]),
       _vm._v(" " + _vm._s(_vm.created_at) + " \n        "),
       _c(
         "a",
@@ -14062,6 +14063,17 @@ var render = function() {
         },
         [
           _c("small", [_vm._v(_vm._s(_vm.likeCount))]),
+          _vm._v(" "),
+          _vm.likeCount == 0
+            ? _c("i", {
+                staticClass: "fa fa-heart",
+                staticStyle: {
+                  color: "rgb(200, 200, 200)",
+                  "font-size": "10px"
+                },
+                attrs: { id: "count", "aria-hidden": "true" }
+              })
+            : _vm._e(),
           _vm._v(" "),
           _vm.likeCount > 0 && _vm.likeCount <= 10
             ? _c("i", {
