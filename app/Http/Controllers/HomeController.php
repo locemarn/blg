@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Model\user\post;
+use App\Model\user\category;
+use App\Model\user\tag;
+use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     /**
@@ -21,8 +24,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(post $post)
     {
-        return view('home');
+        $posts = post::where('status', 1)->orderBy('created_at', 'DESC')->paginate(5);
+        return view('user.blog', compact('posts'));
+    }
+
+    public function post()
+    {
+        return view('user.post');
     }
 }

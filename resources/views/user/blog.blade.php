@@ -1,7 +1,7 @@
 @extends('user/app')
 
-@section('bg-img',asset('user/img/home-bg.jpg'))
-@section('title','Bitfumes Blog')
+@section('bg-img',asset('user/img/home-bg.jpg'))	
+@section('title','Welcome ' . Auth::user()->name . '!')
 @section('sub-heading','Learn Together and Grow Together')
 @section('head')
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -30,7 +30,7 @@
 				:posted_by = value.posted_by
 	            ></posts>
 	            <!-- Pager -->
-	            <ul class="pager">
+	            <ul class="pager" style="list-style-type:none;">
 	                <li class="next">
 	                	{{ $posts->links() }}
 	                </li>
