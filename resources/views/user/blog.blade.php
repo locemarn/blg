@@ -1,7 +1,11 @@
 @extends('user/app')
 
-@section('bg-img',asset('user/img/home-bg.jpg'))	
-@section('title','Welcome ' . Auth::user()->name . '!')
+@section('bg-img',asset('user/img/home-bg.jpg'))
+@guest
+	@section('title','Welcome!')
+@else
+	@section('title','Welcome ' . Auth::user()->name . '!')
+@endguest
 @section('sub-heading','Learn Together and Grow Together')
 @section('head')
 <meta name="csrf-token" content="{{ csrf_token() }}">
