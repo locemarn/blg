@@ -20,13 +20,15 @@
 <article>
   <div class="container">
     <div class="row" style="display: flex;">
-      <div class="col-lg-8 offset-lg-2 col-md-10 mx-auto">
+      <div class="col-lg-8 offset-lg-2 col-md-10">
         <small>Created at: {{ $post->created_at }}, by: {{ $post->posted_by }}</small>
-          @foreach ($post->categories as $category)
-            <small class="pull-right" style="margin-right: 20px;">
-              <a href="{{ route('category',$category->slug) }}">{{ $category->name }}</a>
-            </small>      
-          @endforeach
+        <hr>
+        @foreach ($post->categories as $category)
+          <small class="pull-right" style="margin-right: 20px;">
+            <a href="{{ route('category',$category->slug) }}">{{ $category->name }}</a>
+          </small>      
+        @endforeach
+        <br><hr>
             
         {!! htmlspecialchars_decode($post->body) !!}
             <hr>
