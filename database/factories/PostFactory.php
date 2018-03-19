@@ -10,6 +10,7 @@ $factory->define(App\Model\user\post::class, function (Faker $faker) {
         'title'=> $title,
         'subtitle'=> $subtitle,
         'slug'=> str_slug($title),
+        'status'=> 1,
         'body'=> $faker->text(500),
         'posted_by'=> $faker->name,
         'image'=> $faker->image($filePath)

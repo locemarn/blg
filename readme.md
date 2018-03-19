@@ -1,3 +1,7 @@
+<h2>Recomendação</h2>
+<h4>Usar o arquivo database.sql para criar sua base de dados, já com regras de permissão!</h4>
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
